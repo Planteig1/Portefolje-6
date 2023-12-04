@@ -1,0 +1,41 @@
+/*Global Design*/
+* {
+    list-style-type: none;
+}
+/*HEADER*/
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: powderblue;
+    position: sticky;
+}
+/* Nav bar*/
+ul {
+    display: flex;
+
+}
+
+/*NAV BAR NAVIGATION BUTTONS*/
+
+li {
+    margin-right: 10px;
+    padding: 10px;
+    border: solid black 1px;
+    border-radius: 5px;
+    transition: 0.75s;
+}
+
+li:hover {
+    transform: scale(110%);
+    background-color: brown;
+}
+
+/*MAIN CONTENT*/
+main {
+    height: 100vh;
+}
+/*FOOTER*/
+footer {
+    background-color: #DFE2DF;
+    height: 100px;
+}
