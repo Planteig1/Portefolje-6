@@ -15,24 +15,19 @@ header {
 /* Nav bar*/
 ul {
     display: flex;
+    padding-top: 15px;
 }
 
 /*NAV BAR NAVIGATION BUTTONS*/
 
+
 h1 {
-    margin-left: 140px;
+    margin-left: 120px;
+    font-size: 40px;
 }
 
 span {
     color: #BB6343
-}
-
-li:first-child {
-    margin-right: 150px;
-    font-size: 30px;
-    padding-left: 50px;
-    padding-right: 50px;
-
 }
 
 li {
@@ -50,21 +45,33 @@ li:hover {
     background-color: #ab5b3e
 }
 
+.sign-in {
+    width: 150px;
+}
+
+.sign-up {
+    width: 150px;
+}
+
+
 a {
     text-decoration: none;
     text-align: center;
 }
-
-
-/* IMG CONTENT */
-
-
 /* Body */
 body {
-    background: url("coffee-wallpaper.jpeg");
+    background: url("Images/coffee-wallpaper.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.find-cafe {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    margin-top: 100px;
+}
+
 
 /*MAIN CONTENT*/
 main {
@@ -74,6 +81,7 @@ main {
     align-items: center;
 }
 
+/* ----- section forms box ----- */
 .dayCafe {
     /* From https://css.glass */
     background: rgb(119, 64, 43);
@@ -88,6 +96,7 @@ main {
     justify-content: space-evenly;
 
 }
+
 
 .dayCafeImg {
     width: 325px;
