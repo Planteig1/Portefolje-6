@@ -52,6 +52,7 @@ li:hover {
 
 a {
     text-decoration: none;
+    text-align: center;
 }
 
 
@@ -73,7 +74,7 @@ main {
     align-items: center;
 }
 
-.day-cafe {
+.dayCafe {
     /* From https://css.glass */
     background: rgb(119, 64, 43);
     border-radius: 16px;
@@ -88,13 +89,13 @@ main {
 
 }
 
-.day-cafe-img {
+.dayCafeImg {
     width: 325px;
     height: 350px;
     border-radius: 16px;
 }
 
-.day-cafe-info {
+.dayCafeInfo {
     padding: 25px;
     line-height: 30px;
 
