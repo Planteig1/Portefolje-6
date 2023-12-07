@@ -1,25 +1,33 @@
 // ALL ENDPOINTS AKA API AKA THE SERVER
 
+// Make it secure
+require('dotenv').config();
+
+const cors = require("cors")
+
 // Express
 const express = require('express')
 const app = express()
 const port = 3000
 
+
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`App listening on port ${port}`)
 })
 // Makes it possible to read JSON from post requests
 app.use(express.json());
+app.use(cors());
 
 //SQL
+
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: 'Planteig2667',
-    database: 'portefolje6'
+    host: process.env.HOST,
+    port: process.env.PORT,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.DATABASE
 });
 
 
