@@ -1,23 +1,23 @@
-/*Global Design*/
+/* =========== Global Design =========== */
 * {
     list-style-type: none;
     color: white;
     font-family: 'Rubik', sans-serif;
 }
-/*HEADER*/
+/* ============ HEADER ============ */
 header {
     display: flex;
     justify-content: space-between;
     position: sticky;
     width: 100%;
-
+    border-bottom: white solid 1px;
 }
-/* Nav bar*/
-ul {
-    display: flex;
-}
+/* ============== Nav bar =========== */
+    ul {
+        display: flex;
+    }
 
-/*NAV BAR NAVIGATION BUTTONS*/
+/* ======== NAV BAR NAVIGATION BUTTONS =======*/
 
 h1 {
     margin-left: 140px;
@@ -47,18 +47,17 @@ a {
     text-align: center;
 }
 
+/* ========== hamburger menu ========== */
 
-/* IMG CONTENT */
 
-
-/* Body */
+/* ======== Body ============= */
 body {
     background: url("/Images/coffee-wallpaper.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-/*MAIN CONTENT*/
+/* ========== MAIN CONTENT ================= */
 main {
     height: 100vh;
     display: flex;
@@ -78,7 +77,6 @@ main {
     margin-bottom: 150px;
     display: flex;
     justify-content: space-evenly;
-
 }
 
 .day-cafe-img {
@@ -90,10 +88,12 @@ main {
 .day-cafe-info {
     padding: 25px;
     line-height: 30px;
-
 }
 
-/*FOOTER*/
+
+
+
+/* =========== FOOTER ============ */
 footer {
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.19);
