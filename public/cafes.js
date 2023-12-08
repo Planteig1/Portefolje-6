@@ -29,7 +29,7 @@ fetch('http://localhost:3000/cafes')
                             <img src="https://images.squarespace-cdn.com/content/v1/630df13c6197615113e5d249/a72505be-7a7b-450a-a7b9-c4d97a71c2c6/unda_restaurant_21.09.22.jpg">
                             <div class="card-details">
                                 <h3>${cafe.name}</h3>
-                                <p>Lisegårdsvænget 1, Tune, Denmark</p>
+                                <p>${cafe.address}, ${cafe.city}, ${cafe.country}</p>
                                 <div class="card-rating">
 <!--                                    <span class="fa-solid fa-star"></span>-->
 <!--                                    <h3>5.0</h3>-->
