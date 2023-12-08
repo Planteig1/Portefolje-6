@@ -246,6 +246,10 @@ form .btn input[type="submit"]{
     cursor: pointer;
 }
 
+input {
+    color: black;
+}
+
 
 .slide-controls label {
     display: flex;
