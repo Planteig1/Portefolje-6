@@ -64,7 +64,7 @@ app.post('/create/user',(req, res) => {
 // LOGIN USER
 // REMEBER TO SET USER ID = 0 BEFORE "LAUNCH"
 
-let currentUserId = 3;
+let currentUserId = 4;
 
 app.post('/login/user',(req, res) => {
     // Get the values from user
@@ -98,7 +98,7 @@ app.post('/login/user',(req, res) => {
 app.get('/cafes',(req, res) => {
     // Fetch all the cafes from the database.
     connection.query(
-        'SELECT * FROM `cafes`',
+        'SELECT * FROM `cafes` INNER JOIN `location` ON cafes.cafe_id = location.cafe_id',
         function (err, result) {
             console.log("Found all cafes in the database")
             res.send(result)

@@ -1,6 +1,9 @@
 // UL ELEMENT FOR LIST OF CAFES
 const containerForCafes = document.querySelector(".list-of-cafes")
 
+// STORED USERID
+
+
 // FETCH THE DATA WHEN LOADED
 
 fetch('http://localhost:3000/cafes')
@@ -9,27 +12,38 @@ fetch('http://localhost:3000/cafes')
         // CREATE "CARD" FOR EACH CAFE
         listOfCafes.forEach((cafe) => {
             console.log(cafe)
-            // Create the div for the information to be contained withing
-            let currentCafeDiv = document.createElement("div");
-            currentCafeDiv.classList.add(cafe.cafe_id, "cafe-card")
+            // Recreate the html template for a cafe-card
+            // Create LI Element - place 0
+            let liElementForCafe = document.createElement("li");
 
-            // Create the elements
-            let currentCafeImg = document.createElement("h3")
-            currentCafeImg.innerText = "PLACEHOLDER"
+            // Change the innerHTML to the template made
+            liElementForCafe.innerHTML = `
+                <li class=${cafe.cafe_id}>
+                    <div class="cafe-content">
+                        <a href="#" >
+                            <div class="cafe-attributes">
+                                <button class="fav-button"><span class="fa-regular fa-heart attribute"></span></button>
+<!--                                <span class="fa-solid fa-wifi attribute"></span>-->
+<!--                                <span class="fa-solid fa-music attribute"></span>-->
+                            </div>
+                            <img src="https://images.squarespace-cdn.com/content/v1/630df13c6197615113e5d249/a72505be-7a7b-450a-a7b9-c4d97a71c2c6/unda_restaurant_21.09.22.jpg">
+                            <div class="card-details">
+                                <h3>${cafe.name}</h3>
+                                <p>Lisegårdsvænget 1, Tune, Denmark</p>
+                                <div class="card-rating">
+<!--                                    <span class="fa-solid fa-star"></span>-->
+<!--                                    <h3>5.0</h3>-->
+                                    <span class="fa-solid fa-calendar-days"></span>
+                                    <h3> 08:00 - 20:00</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </li>`
 
-            let currentCafeName = document.createElement("h3")
-            currentCafeName.innerText = cafe.name
 
-            let currentCafeRating = document.createElement("h3")
-            currentCafeRating.innerText = "PLACEHOLDER"
-
-            let currentCafeOpenClose = document.createElement("h3")
-            currentCafeOpenClose.innerText = "PLACEHOLDER"
-
-            currentCafeDiv.append(currentCafeImg,currentCafeName,currentCafeRating,currentCafeOpenClose)
-
-            containerForCafes.append(currentCafeDiv);
-
+            // Append to the container
+            containerForCafes.append(liElementForCafe)
 
         })
     })
