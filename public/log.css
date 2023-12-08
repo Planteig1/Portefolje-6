@@ -23,6 +23,10 @@ h1 {
     margin-left: 140px;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 span {
     color: #BB6343
 }
@@ -61,19 +65,33 @@ main {
     justify-content: center;
     align-content: center;
 }
+
+/* ======== menu ========= */
+label {
+    font-size: 40px;
+    margin-right: 20px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+}
+
 /* ======= register page ========  */
 
 .wrapper{
     overflow: hidden;
     max-width: 390px;
-    background: #fff;
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+    /* From https://css.glass */
+    background: rgba(119, 64, 43, 0.61);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(119, 64, 43, 0.3);
 }
 .wrapper .title-text{
     display: flex;
-    width: 200%;
+    width: 210%;
 }
 .wrapper .title{
     width: 50%;
@@ -153,7 +171,7 @@ input[type="radio"]{
 }
 .form-inner form .field{
     height: 50px;
-    width: 100%;
+    width: 90%;
     margin-top: 20px;
 }
 .form-inner form .field input{
@@ -168,7 +186,7 @@ input[type="radio"]{
     transition: all 0.3s ease;
 }
 .form-inner form .field input:focus{
-    border-color: #77402b;
+    border-color: #ffffff;
     /* box-shadow: inset 0 0 3px #fb6aae; */
 }
 .form-inner form .field input::placeholder{
@@ -176,7 +194,7 @@ input[type="radio"]{
     transition: all 0.3s ease;
 }
 form .field input:focus::placeholder{
-    color: #77402b;
+    color: #ffffff;
 }
 .form-inner form .pass-link{
     margin-top: 5px;
@@ -187,7 +205,7 @@ form .field input:focus::placeholder{
 }
 .form-inner form .pass-link a,
 .form-inner form .signup-link a{
-    color: #77402b;
+    color: #ffffff;
     text-decoration: none;
 }
 .form-inner form .pass-link a:hover,
@@ -226,4 +244,36 @@ form .btn input[type="submit"]{
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
+}
+
+
+.slide-controls label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pass-link {
+    padding-top: 15px;
+    justify-content: center;
+    display: flex;
+}
+
+@media (max-width: 1024px){
+ nav li {
+     display: none;
+ }
+    label {
+     display: flex;
+     align-items: center;
+ }
+    .wrapper {
+        max-width: 300px;
+    }
+    .field input {
+        font-size: 15px;
+    }
+    input {
+        width: 20px;
+    }
 }

@@ -23,9 +23,15 @@ h1 {
     margin-left: 140px;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 span {
     color: #BB6343
 }
+
+
 
 li {
     font-size: 16px;
@@ -47,8 +53,14 @@ a {
     text-align: center;
 }
 
-/* ========== hamburger menu ========== */
-
+/* ========== menu ========== */
+label {
+    font-size: 40px;
+    margin-right: 20px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+}
 
 /* ======== Body ============= */
 body {
@@ -91,7 +103,53 @@ main {
 }
 
 
+@media screen and (max-width: 1024px) {
+    .nav li {
+        display: none;
+    }
+    label {
+        display: flex;
+    }
+    main {
+        flex-direction: column;
+    }
+    .day-cafe {
+        width: 550px;
+        height: 300px;
+        margin-bottom: 50px;
+    }
+    .day-cafe-img {
+        width: 275px;
+        height: 300px;
+    }
+    .day-cafe-info {
+        padding: 10px;
+        line-height: 20px;
+    }
 
+
+}
+
+
+@media screen and (max-width: 768px) {
+    section {
+        flex-direction: column;
+    }
+    .day-cafe {
+        width: 250px;
+        height: 500px;
+        margin-bottom: 50px;
+    }
+    .day-cafe-img {
+        width: 250px;
+        height: 300px;
+    }
+    .day-cafe-info {
+        padding: 10px;
+        line-height: 20px;
+    }
+
+}
 
 /* =========== FOOTER ============ */
 footer {
