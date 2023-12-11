@@ -11,6 +11,7 @@ a {
 header {
     display: flex;
     justify-content: space-between;
+    border-bottom: #77402b solid 1px;
 
 }
 /* Nav bar*/
@@ -58,6 +59,14 @@ body {
 /*MAIN CONTENT*/
 section {
     display: flex;
+}
+
+.filter-container {
+    border-right: #77402b solid 1px;
+}
+
+form {
+    padding: 15px;
 }
 
 /*CAFE CARD*/
@@ -135,14 +144,8 @@ section {
     border-radius: 3px;
 }
 
-/*FOOTER*/
-footer {
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.19);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
-    height: 100px;
-    margin: 0;
-    padding: 0;
+section {
+    height: 100vh;
 }
+/*FOOTER*/
+
