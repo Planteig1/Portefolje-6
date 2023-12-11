@@ -59,14 +59,18 @@ body {
 /*MAIN CONTENT*/
 section {
     display: flex;
+    height: 100vh;
 }
 
-.filter-container {
-    border-right: #77402b solid 1px;
-}
+
 
 form {
     padding: 15px;
+}
+
+/*FILTER DESIGN*/
+.filter-container {
+    border-right: #77402b solid 1px;
 }
 
 /*CAFE CARD*/
@@ -96,13 +100,9 @@ form {
     text-align: center;
 }
 .fav-button {
-    background-color: transparent;
     cursor: pointer;
     transition: color 0.5s;
-}
-
-.fav-button:hover {
-    color: #c37659;
+    background-color: transparent;
 }
 
 .attribute {
@@ -112,7 +112,13 @@ form {
     1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
 }
 
-
+.fa-heart:hover {
+    color: #c37659;
+}
+/*USER HAS FAVORITED*/
+.favorite {
+    color: #c37659;
+}
 .card-details {
     position: absolute;
     bottom: 0;
@@ -144,8 +150,16 @@ form {
     border-radius: 3px;
 }
 
-section {
-    height: 100vh;
+/*CAFE LIST*/
+.list-of-cafes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    list-style-type: none;
 }
+
+
 /*FOOTER*/
 
