@@ -52,12 +52,17 @@ a {
     text-align: center;
 }
 
-/* Body */
-body {
-    background: url("/Images/coffee-wallpaper.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
+/* ======== video background ============= */
+.back-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+
 
 
 main {
@@ -87,7 +92,7 @@ label {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(119, 64, 43, 0.3);
+    border: 2px solid white;
 }
 .wrapper .title-text{
     display: flex;
