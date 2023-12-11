@@ -97,8 +97,15 @@ app.post('/login/user',(req, res) => {
 // /cafes - Shows all cafes in the database
 app.get('/cafes',(req, res) => {
     // Fetch all the cafes from the database.
+
+    //GET THE DAY
+    const date = new Date();
+    let day = date.getDay();
+    // Stored 1-7 in MYSQL
+    day += 1;
     connection.query(
-        'SELECT * FROM `cafes` INNER JOIN `location` ON cafes.cafe_id = location.cafe_id',
+        'SELECT cafes.*, location.*, time.*, AVG(rating.rating) AS avg_rating FROM cafes INNER JOIN location ON cafes.cafe_id = location.cafe_id LEFT JOIN rating ON cafes.cafe_id = rating.cafe_id INNER JOIN time ON cafes.cafe_id = time.cafe_id WHERE time.day_of_week = ? GROUP BY cafes.cafe_id, cafes.name, cafes.wifi, cafes.music, cafes.price_range, cafes.user_id, location.country, location.city, location.address, location.lat, location.lng, time.day_of_week, time.opening_hour, time.closing_hour;',
+        [day],
         function (err, result) {
             console.log("Found all cafes in the database")
             res.send(result)
