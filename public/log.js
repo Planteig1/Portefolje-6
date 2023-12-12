@@ -1,6 +1,6 @@
 const loginText = document.querySelector(".title-text .login");
 const loginForm = document.querySelector("form.login");
-const loginBtn = document.querySelector("label.login");
+const loginBtn = document.querySelector("#login-button");
 const signupBtn = document.querySelector("label.signup");
 const signupLink = document.querySelector("form .signup-link a");
 
@@ -17,64 +17,28 @@ signupLink.onclick = (()=>{
     return false;
 });
 
-// log.js
+const usernameInputFieldLogin = document.querySelector("#username");
+const passwordInputFieldLogin = document.querySelector("#password");
 
-document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.querySelector('.login form');
-    const signupForm = document.querySelector('.signup form');
+loginBtn.addEventListener("click",() => {
+    let username = usernameInputFieldLogin.value
+    let password = passwordInputFieldLogin.value
 
-    loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const email = document.querySelector('.login input[type="text"]').value;
-        const password = document.querySelector('.login input[type="password"]').value;
 
-        // Make a fetch request to your server for login
-        fetch('http://your-server-endpoint/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
+    // Check username and password
+    let loginData = {
+        "username": username,
+        "password": password
+    }
+    fetch('http://localhost:3000/login/user', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginData),
+    }).then(response => response.text())
+        .then((currentUserId) => {
+            localStorage.setItem("userId",currentUserId)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // Handle the response from the server as needed
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-    });
+})
 
-    signupForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const firstName = document.querySelector('.signup input[placeholder="Firstname"]').value;
-        const lastName = document.querySelector('.signup input[placeholder="Lastname"]').value;
-        const email = document.querySelector('.signup input[placeholder="Email Address"]').value;
-        const password = document.querySelector('.signup input[placeholder="Password"]').value;
-        const confirmPassword = document.querySelector('.signup input[placeholder="Confirm password"]').value;
-
-        // Validate passwords match
-        if (password !== confirmPassword) {
-            alert('Passwords do not match');
-            return;
-        }
-
-        // Make a fetch request to your server for signup
-        fetch('/create/user', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ firstName, lastName, email, password }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // Handle the response from the server as needed
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-    });
-});

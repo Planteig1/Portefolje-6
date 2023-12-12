@@ -3,7 +3,8 @@ const containerForCafes = document.querySelector(".list-of-cafes")
 let favoriteButtons;
 
 // STORED USERID
-
+let currentUserId = localStorage.getItem("userId");
+console.log(currentUserId)
 
 // FETCH THE DATA WHEN LOADED
 createCafeCards()

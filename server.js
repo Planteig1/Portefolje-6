@@ -64,7 +64,6 @@ app.post('/create/user',(req, res) => {
 // LOGIN USER
 // REMEBER TO SET USER ID = 0 BEFORE "LAUNCH"
 
-let currentUserId = 4;
 
 app.post('/login/user',(req, res) => {
     // Get the values from user
@@ -78,12 +77,11 @@ app.post('/login/user',(req, res) => {
         [username, password],
         function (err, result) {
             if (result.length === 1) {
-                res.send(`User ${username} has been logged in`)
                 connection.query(
                     'SELECT user_id FROM `users` WHERE username = ?',
                     [username],
                     function (err, result) {
-                        currentUserId = result[0].user_id
+                        res.send(result[0].user_id.toString());
                     }
                 )
             } else {
