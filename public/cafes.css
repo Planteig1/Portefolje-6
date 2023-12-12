@@ -49,6 +49,8 @@ header div a {
     text-align: center;
 }
 
+
+
 /* Body */
 body {
 
@@ -61,6 +63,10 @@ section {
 
 .filter-container {
     border-right: #77402b solid 1px;
+}
+
+form {
+    padding: 15px;
 }
 
 /*CAFE CARD*/

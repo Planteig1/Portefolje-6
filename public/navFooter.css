@@ -1,0 +1,123 @@
+/*GLOABAL CSS DESIGN*/
+
+
+/*NAV BAR*/
+
+/* =========== Global Design =========== */
+* {
+    list-style-type: none;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+}
+/* ============ HEADER ============ */
+header {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    width: 100%;
+    border-bottom: white solid 1px;
+
+}
+/* ============== Nav bar =========== */
+ul {
+    display: flex;
+}
+.logo h1 {
+    margin-left: 140px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+/* ======== NAV BAR NAVIGATION BUTTONS =======*/
+
+.logo h1 {
+    margin-left: 120px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+span {
+    color: #99582a
+}
+
+li {
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 30px;
+    padding: 30px 30px;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+li:hover {
+    transform: scale(110%);
+    background-color: #99582a;
+    border: white solid 2px;
+    transition: 0.5s;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+
+}
+
+.nav button {
+    background: none;
+    border-radius: 25px;
+    border: solid #f1f6ff 1px;
+    transition: 0.5s;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.nav button:hover {
+    background: #99582a;
+    transition: 0.5s;
+}
+
+.hamburger-menu {
+    width: 50px;
+    height: 50px;
+    margin: 35px;
+    display: none;
+}
+
+/* =========== NAV BAR RESPONSIVE ============ */
+@media screen and (max-width: 1100px) {
+    .nav li {
+        margin-right: 20px
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .nav li {
+        display: none;
+    }
+    .nav button {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+}
+
+/*FOOTER*/
+
+
+/* =========== FOOTER ============ */
+footer {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.19);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    height: 100px;
+    margin: 0;
+    padding: 0;
+}

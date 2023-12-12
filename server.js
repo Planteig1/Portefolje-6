@@ -64,7 +64,6 @@ app.post('/create/user',(req, res) => {
 // LOGIN USER
 // REMEBER TO SET USER ID = 0 BEFORE "LAUNCH"
 
-let currentUserId = 4;
 
 app.post('/login/user',(req, res) => {
     // Get the values from user
@@ -78,12 +77,11 @@ app.post('/login/user',(req, res) => {
         [username, password],
         function (err, result) {
             if (result.length === 1) {
-                res.send(`User ${username} has been logged in`)
                 connection.query(
                     'SELECT user_id FROM `users` WHERE username = ?',
                     [username],
                     function (err, result) {
-                        currentUserId = result[0].user_id
+                        res.send(result[0].user_id.toString());
                     }
                 )
             } else {
@@ -103,6 +101,7 @@ app.get('/cafes',(req, res) => {
     let day = date.getDay();
     // Stored 1-7 in MYSQL
     day += 1;
+
     connection.query(
         'SELECT cafes.*, location.*, time.*, AVG(rating.rating) AS avg_rating FROM cafes INNER JOIN location ON cafes.cafe_id = location.cafe_id LEFT JOIN rating ON cafes.cafe_id = rating.cafe_id INNER JOIN time ON cafes.cafe_id = time.cafe_id WHERE time.day_of_week = ? GROUP BY cafes.cafe_id, cafes.name, cafes.wifi, cafes.music, cafes.price_range, cafes.user_id, location.country, location.city, location.address, location.lat, location.lng, time.day_of_week, time.opening_hour, time.closing_hour;',
         [day],
@@ -292,7 +291,7 @@ app.post('/create/cafe',(req, res) => {
 // -/favorite/add - Adds a favorite functionality
 app.post('/favorite/add',(req, res) => {
     // Get the query parameter
-    const cafeId = req.body.cafeId
+    const cafeId = req.body.cafe_id
     const userId = currentUserId
 
     // If they already has favorited a specific cafe
