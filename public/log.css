@@ -10,6 +10,7 @@ header {
     justify-content: space-between;
     position: sticky;
     width: 100%;
+    border-bottom: white 1px solid
 
 }
 /* ======= Nav bar ======== */
@@ -17,10 +18,12 @@ ul {
     display: flex;
 }
 
-/* ====== NAV BAR NAVIGATION BUTTONS ======= */
+/* ======== NAV BAR NAVIGATION BUTTONS =======*/
 
-h1 {
-    margin-left: 140px;
+.logo h1 {
+    margin-left: 120px;
+    font-size: 40px;
+    font-weight: 700;
 }
 
 .logo {
@@ -28,28 +31,29 @@ h1 {
 }
 
 span {
-    color: #BB6343
+    color: #99582a
 }
 
-
 li {
-    font-size: 16px;
-    margin-right: 60px;
-    padding: 10px;
-    border: solid #ab5b3e 1px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 30px;
+    padding: 30px 30px;
     border-radius: 5px;
     transition: 0.5s;
-    text-align: center;
 }
 
 li:hover {
     transform: scale(110%);
-    background-color: #ab5b3e
+    background-color: #99582a;
+    border: white solid 2px;
+    transition: 0.5s;
 }
 
 a {
     text-decoration: none;
     text-align: center;
+    font-weight: 700;
 }
 
 /* ======== video background ============= */
@@ -72,7 +76,7 @@ main {
 }
 
 /* ======== menu ========= */
-label {
+.hamburger-menu {
     font-size: 40px;
     margin-right: 20px;
     cursor: pointer;
@@ -85,13 +89,14 @@ label {
 .wrapper{
     overflow: hidden;
     max-width: 390px;
+    margin-top: 60px;
     padding: 30px;
     /* From https://css.glass */
-    background: rgba(119, 64, 43, 0.61);
+    background: rgba(119, 64, 43, 0.7);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
     border: 2px solid white;
 }
 .wrapper .title-text{
@@ -108,7 +113,7 @@ label {
 .wrapper .slide-controls{
     position: relative;
     display: flex;
-    height: 50px;
+    height: 40px;
     width: 100%;
     overflow: hidden;
     margin: 30px 0 10px 0;
@@ -175,7 +180,7 @@ input[type="radio"]{
     transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
 }
 .form-inner form .field{
-    height: 50px;
+    height: 40px;
     width: 90%;
     margin-top: 20px;
 }
@@ -254,7 +259,6 @@ form .btn input[type="submit"]{
 input {
     color: black;
 }
-
 
 .slide-controls label {
     display: flex;

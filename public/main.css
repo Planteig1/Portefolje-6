@@ -4,6 +4,7 @@
     color: white;
     font-family: 'Rubik', sans-serif;
 }
+
 /* ============ HEADER ============ */
 header {
     display: flex;
@@ -62,26 +63,15 @@ a {
 
 }
 
-.nav button {
-    background: none;
-    border-radius: 25px;
-    border: solid #f1f6ff 1px;
-    transition: 0.5s;
-    font-size: 16px;
+.nav .hamburger-menu {
+    position: absolute;
+    display: none;
+    top: 25px;
+    right: 25px;
+    width: 45px;
     cursor: pointer;
 }
 
-.nav button:hover {
-    background: #99582a;
-    transition: 0.5s;
-}
-
-.hamburger-menu {
-    width: 50px;
-    height: 50px;
-    margin: 35px;
-    display: none;
-}
 
 /* =========== NAV BAR RESPONSIVE ============ */
 @media screen and (max-width: 1100px) {
@@ -91,14 +81,37 @@ a {
 }
 
 @media screen and (max-width: 1024px) {
-    .nav li {
-        display: none;
-    }
-    .nav button {
-        display: none;
-    }
-    .hamburger-menu {
+    .nav .hamburger-menu{
         display: block;
+    }
+
+    .nav {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background: rgba(119, 64, 43, 0.4);
+        backdrop-filter: blur(10px);
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        margin-right: -100%;
+     }
+
+    .open {
+        margin-right: 0;
+    }
+    .nav li:hover {
+        transform: none;
+        background-color: transparent;
+        border: none;
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
