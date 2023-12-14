@@ -244,7 +244,7 @@ app.post('/create/cafe',(req, res) => {
     const wifi = req.body.wifi;
     const music = req.body.music;
     const priceRange = req.body.priceRange;
-    const userId = currentUserId;
+    const userId = req.body.user_id
 
     // Location Parameters
     const country = req.body.country;
@@ -280,7 +280,9 @@ app.post('/create/cafe',(req, res) => {
                             [name],
                             function (err, result3) {
                                 // Define the current cafe ID
+                                console.log(result3[0].cafe_id)
                                 const cafeId = result3[0].cafe_id
+
 
                                 // Create location
                                connection.query(
@@ -311,7 +313,6 @@ app.post('/create/cafe',(req, res) => {
                                 })
                             }
                         )
-                        res.send("You Have Created a new Cafe")
                     }
                 )
             } else {
