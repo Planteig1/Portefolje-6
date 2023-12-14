@@ -3,6 +3,9 @@
     color: black;
 }
 
+header {
+    border-bottom: #77402b solid 1px;
+}
 nav ul li:hover > a {
     color: white;
     transition: 0.5s;
@@ -110,11 +113,9 @@ form {
     border-radius: 3px;
 }
 
-
-
 /*FILTER DESIGN*/
 .filter {
-    padding: 20px;
+    padding-left: 20px;
 }
 
 .filter-form {

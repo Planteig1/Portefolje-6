@@ -3,31 +3,63 @@
     color: black;
 }
 
+
+header{
+    border-bottom: #77402b solid 1px;
+}
+
 nav ul li:hover > a {
     color: white;
     transition: 0.5s;
 }
 /**/
-h1 {
-    text-align: center;
-    color: #333;
+
+.my-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
 }
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #77402b;
+    margin-right: 50px;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
 
 .profile-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    border: #77402b solid 1px;
+    width: 700px;
+    height: 100px;
 }
 
 .profile-info label {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin: 10px 10px;
     color: #77402b;
 }
 
 .profile-info p {
     margin: 0;
-    color: #666;
+    color: #77402b;
 }
 
 .favorite-container {
@@ -46,7 +78,7 @@ h1 {
     width: 300px;
     height: 300px;
     margin: 20px;
-    border: black solid 1px;
+    border: #77402b solid 1px;
 }
 
 /*CAFE CARD DESIGN*/

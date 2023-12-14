@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(cors());
 
 //SQL
-
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
