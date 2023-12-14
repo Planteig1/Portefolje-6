@@ -175,7 +175,7 @@ app.get('/cafes/search/',(req, res) => {
         conditions.push(`city = '${city}'`);
     }
     if (priceRange) {
-        conditions.push(`priceRange = '${priceRange}'`);
+        conditions.push(`price_range = '${priceRange}'`);
     }
     if (wifi) {
         conditions.push(`wifi = ${wifi}`);
@@ -183,8 +183,10 @@ app.get('/cafes/search/',(req, res) => {
     if (music) {
         conditions.push(`music = ${music}`);
     }
+
     // Join the conditions with 'AND'
     const conditionsAsString = conditions.join(' AND ');
+    console.log(conditionsAsString)
 
     connection.query(
         `SELECT * FROM cafe_card_details WHERE day_of_week = ? AND ${conditionsAsString}`,

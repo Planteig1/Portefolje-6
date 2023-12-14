@@ -91,10 +91,19 @@ function createCafeCards(listOfCafes) {
 }
 
 function addFavorite(listOfCafes) {
+
+
     favoriteButtons = document.querySelectorAll(".fav-button");
 
     favoriteButtons.forEach((button, index) => {
         button.addEventListener("click",() => {
+            if (!userLoggedIn) {
+                alert("Please Login or register an account before trying to favorite a cafe")
+
+                //Change the page to login/register page when user is ready
+                window.location.pathname  = "/Portefolje-6/public/log.html";
+            }
+
             let currentHeartIcon = button.querySelector(".fa-heart");
             currentHeartIcon.classList.toggle("favorite");
             let currentCafe = listOfCafes[index].cafe_id
