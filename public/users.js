@@ -4,7 +4,6 @@
 console.log(!userLoggedIn)
 if (!userLoggedIn) {
     alert("Please Login or register an account before accessing this page!")
-    console.log("this is false")
 
     //Change the page to login/register page when user is ready
     window.location.pathname  = "/Portefolje-6/public/log.html";

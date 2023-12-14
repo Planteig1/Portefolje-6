@@ -279,7 +279,6 @@ app.post('/create/cafe',(req, res) => {
                             [name],
                             function (err, result3) {
                                 // Define the current cafe ID
-                                console.log(result3[0].cafe_id)
                                 const cafeId = result3[0].cafe_id
 
 
