@@ -1,0 +1,29 @@
+
+* {
+    color: black;
+}
+
+.create-cafe-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: powderblue;
+    padding: 10px;
+}
+
+#timeTable {
+    display: flex;
+    gap: 20px;
+}
+#timeTable li {
+    background-color: #666666;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}

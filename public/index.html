@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="navFooter.css">
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;500;600&family=Kanit:wght@300;400&family=Playpen+Sans:wght@400;600;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <!-- ADD LOGO HERE -->
-            <a href="index.html"><h1>Latte<span>Locator</span></h1></a>
-        </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="cafes.html">Cafe</a></li>
-                <li><a href="#">My Account </a></li>
-                <li><a href="#">About Us</a></li>
-                <li> <a href="log.html">Sign up</a>         </li>
-                <li> <a href="log.html">Sign in</a> </li>
-            </ul>
-            <img src="../Images/icons8-menu-50.png" alt="menu" class="hamburger-menu">
-        </nav>
-    </header>
+
+<header>
+    <div class="logo">
+        <!-- ADD LOGO HERE -->
+        <a class="link" href="index.html"><h1>Latte<span>Locator</span></h1></a>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li id="cafe-link"><a class="link" href="cafes.html">Cafe</a></li>
+            <li id="user-link"><a class="link" href="user.html">My Account </a></li>
+            <li id="sign-up-link"><a class="link" href="log.html">Sign up</a> </li>
+            <li id="sign-in-link"><a class="link" href="log.html">Sign in</a> </li>
+            <li id="create-cafe-ink" class="hidden"><a class="link" href="cafeCreate.html">Create cafe</a> </li>
+            <li id="sign-out-link" class="hidden"><a class="link">Sign Out</a> </li>
+        </ul>
+        <img src="../Images/icons8-menu-50.png" alt="menu" class="hamburger-menu">
+    </nav>
+</header>
 
     <main>
         <div class="content">
@@ -34,24 +37,12 @@
                 <button type="button"> Cafes </button>
             </div>
         </div>
-<!--        <section class="day-cafe">-->
-<!--            <div>-->
-<!--                <img class="day-cafe-img" src="../Images/CafeOfTheDay.jpeg" alt="Cafe of the day">-->
-<!--            </div>-->
-<!--            <div class="day-cafe-info">-->
-<!--                <h2> Cafe of the day</h2>-->
-<!--                <p>-->
-<!--                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.-->
-<!--                </p>-->
-<!--            </div>-->
-<!--        </section>-->
             <video autoplay loop muted playsinline id="myVideo" class="back-video">
                 <source src="/Images/coffee_video(1080p).mp4" type="video/mp4">
             </video>
 
     </main>
-
-    <script src="../server.js"></script>
+    <script src="userLoggedIn.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

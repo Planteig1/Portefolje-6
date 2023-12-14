@@ -1,10 +1,52 @@
-/* =========== Global Design ======= */
+
 * {
-    list-style-type: none;
-    font-family: 'Rubik', sans-serif;
-    color: white;
+    color: black;
 }
-/* ======== HEADER ============= */
+
+/* ======== video background ============= */
+.back-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main {
+
+}
+section {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    padding: 10px;
+}
+.switch-buttons {
+    padding-bottom: 30px;
+}
+.forms {
+    display: flex;
+    gap: 20px;
+}
+.login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*
 header {
     display: flex;
     justify-content: space-between;
@@ -13,12 +55,13 @@ header {
     border-bottom: white 1px solid
 
 }
-/* ======= Nav bar ======== */
+ ======= Nav bar ========
+
 ul {
     display: flex;
 }
 
-/* ======== NAV BAR NAVIGATION BUTTONS =======*/
+======== NAV BAR NAVIGATION BUTTONS =======
 
 .logo h1 {
     margin-left: 120px;
@@ -56,7 +99,7 @@ a {
     font-weight: 700;
 }
 
-/* ======== video background ============= */
+ ======== video background =============
 .back-video {
     position: absolute;
     right: 0;
@@ -75,7 +118,7 @@ main {
     align-content: center;
 }
 
-/* ======== menu ========= */
+======== menu =========
 .hamburger-menu {
     font-size: 40px;
     margin-right: 20px;
@@ -84,14 +127,14 @@ main {
     align-items: center;
 }
 
-/* ======= register page ========  */
+======= register page ========
 
 .wrapper{
     overflow: hidden;
     max-width: 390px;
     margin-top: 60px;
     padding: 30px;
-    /* From https://css.glass */
+    // From https://css.glass
     background: rgba(119, 64, 43, 0.7);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -99,6 +142,8 @@ main {
     -webkit-backdrop-filter: blur(0px);
     border: 2px solid white;
 }
+
+
 .wrapper .title-text{
     display: flex;
     width: 210%;
@@ -197,9 +242,12 @@ input[type="radio"]{
 }
 .form-inner form .field input:focus{
     border-color: #ffffff;
-    /* box-shadow: inset 0 0 3px #fb6aae; */
+     box-shadow: inset 0 0 3px #fb6aae;
 }
-.form-inner form .field input::placeholder{
+
+ */
+/*
+.form-inner form .field input::placeholder {
     color: #999;
     transition: all 0.3s ease;
 }
@@ -271,22 +319,5 @@ input {
     justify-content: center;
     display: flex;
 }
+ */
 
-@media (max-width: 1024px){
- nav li {
-     display: none;
- }
-    label {
-     display: flex;
-     align-items: center;
- }
-    .wrapper {
-        max-width: 300px;
-    }
-    .field input {
-        font-size: 15px;
-    }
-    input {
-        width: 20px;
-    }
-}

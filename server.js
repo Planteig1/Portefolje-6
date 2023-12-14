@@ -8,7 +8,7 @@ const cors = require("cors")
 // Express
 const express = require('express')
 const app = express()
-const port = 3306
+const port = 3000
 
 
 app.listen(port, () => {
@@ -29,6 +29,7 @@ const connection = mysql.createConnection({
     password: process.env.MYSQL_PASSWORD,
     database: process.env.DATABASE
 });
+
 
 
 // LOGIN / REGISTER
@@ -52,17 +53,26 @@ app.post('/create/user',(req, res) => {
                     'INSERT INTO `users`(username, email, password, first_name, last_name) VALUES(?,?,?,?,?)',
                     [username, email, password, firstName, lastName],
                     function (err, result) {
-                        res.send(`You've successfully created a account. WELCOME!`);
+                        // Find the user_id for the new account
+                        connection.query(
+                            'SELECT user_id FROM `users` WHERE username = ?',
+                            [username],
+                            function (err, result) {
+                                // Send the id
+                                res.send(result[0].user_id.toString())
+                            }
+                        )
                     }
                 )
             } else {
-                res.status(418).send("Email or username is already in use.")
+                res.status(418).send({})
             }
         }
     )
 })
 // LOGIN USER
-// REMEBER TO SET USER ID = 0 BEFORE "LAUNCH"
+
+
 
 
 app.post('/login/user',(req, res) => {
@@ -77,19 +87,14 @@ app.post('/login/user',(req, res) => {
         [username, password],
         function (err, result) {
             if (result.length === 1) {
-                connection.query(
-                    'SELECT user_id FROM `users` WHERE username = ?',
-                    [username],
-                    function (err, result) {
-                        res.send(result[0].user_id.toString());
-                    }
-                )
+                res.send(result[0].user_id.toString())
             } else {
-                res.send(`Wrong username/password`)
+                res.send()
             }
         }
     )
 })
+
 
 
 // /cafes - Shows all cafes in the database
@@ -102,8 +107,10 @@ app.get('/cafes',(req, res) => {
     // Stored 1-7 in MYSQL
     day += 1;
 
+    // NOTES: MYSQL VIEW = SELECT cafes.*, location.*, time.*, AVG(rating.rating) AS avg_rating FROM cafes INNER JOIN location ON cafes.cafe_id = location.cafe_id LEFT JOIN rating ON cafes.cafe_id = rating.cafe_id INNER JOIN time ON cafes.cafe_id = time.cafe_id WHERE time.day_of_week = ? GROUP BY cafes.cafe_id, cafes.name, cafes.wifi, cafes.music, cafes.price_range, cafes.user_id, location.country, location.city, location.address, location.lat, location.lng, time.day_of_week, time.opening_hour, time.closing_hour;
+
     connection.query(
-        'SELECT cafes.*, location.*, time.*, AVG(rating.rating) AS avg_rating FROM cafes INNER JOIN location ON cafes.cafe_id = location.cafe_id LEFT JOIN rating ON cafes.cafe_id = rating.cafe_id INNER JOIN time ON cafes.cafe_id = time.cafe_id WHERE time.day_of_week = ? GROUP BY cafes.cafe_id, cafes.name, cafes.wifi, cafes.music, cafes.price_range, cafes.user_id, location.country, location.city, location.address, location.lat, location.lng, time.day_of_week, time.opening_hour, time.closing_hour;',
+        'SELECT * FROM `cafe_card_details` WHERE day_of_week = ?',
         [day],
         function (err, result) {
             console.log("Found all cafes in the database")
@@ -113,7 +120,7 @@ app.get('/cafes',(req, res) => {
 })
 
 // -/cafes/:cafe_id - Shows the cafe based on id
-app.get('/cafes/search/:cafe_id',(req, res) => {
+app.get('/cafe/search/:cafe_id',(req, res) => {
     // Get the parameter
     let cafeId = req.params.cafe_id;
 
@@ -128,38 +135,62 @@ app.get('/cafes/search/:cafe_id',(req, res) => {
     )
 })
 
-// -/cafes/search?city=? - Shows the cafes based on city
-app.get('/cafes/search',(req, res) => {
+// -/cafes/list-of-cities
+app.get('/cafes/list-of-cities',(req, res) => {
+    // Get a list of all the data.
+    connection.query(
+        'SELECT city FROM `location`',
+        function (err, result) {
+            // Remove duplicates
+            let arrayOfCities = []
+            result.forEach((city) => {
+                let currentCity = city.city
+                if (!arrayOfCities.includes(currentCity)) {
+                    arrayOfCities.push(currentCity)
+                }
+            })
+            res.send(arrayOfCities)
+        }
+    )
+})
+
+// -/cafes/search?city=? - Shows the cafes based on city and so on
+app.get('/cafes/search/',(req, res) => {
+
+    //GET THE DAY
+    const date = new Date();
+    let day = date.getDay();
+    // Stored 1-7 in MYSQL
+    day += 1;
+
     // Get the query parameter AKA WHAT CITY
     const city = req.query.city
+    const priceRange = req.query.priceRange
+    const wifi = req.query.wifi
+    const music = req.query.music
+    // Create an array of conditions
+    const conditions = [];
 
-    // Find which cafes are in specified city in location table
+    if (city) {
+        conditions.push(`city = '${city}'`);
+    }
+    if (priceRange) {
+        conditions.push(`priceRange = '${priceRange}'`);
+    }
+    if (wifi) {
+        conditions.push(`wifi = ${wifi}`);
+    }
+    if (music) {
+        conditions.push(`music = ${music}`);
+    }
+    // Join the conditions with 'AND'
+    const conditionsAsString = conditions.join(' AND ');
+
     connection.query(
-        'SELECT cafe_id FROM `location` WHERE city = ?',
-        [city],
+        `SELECT * FROM cafe_card_details WHERE day_of_week = ? AND ${conditionsAsString}`,
+        [day],
         function (err, result) {
-            if (err) {
-                res.send(err)
-            }
-            // If there a cafe with that city in the database
-            if (result.length > 0) {
-                // Get the information for each of the cafes
-                result.forEach((cafe) => {
-                    // Define cafe_id
-                    let currentCafeId = cafe.cafe_id
-
-                    connection.query(
-                        'SELECT * FROM `cafes` WHERE cafe_id = ?',
-                        [currentCafeId],
-                        function (err, result) {
-                            console.log(result[0])
-                        }
-                    )
-                })
-            } else {
-                res.send(`We couldnt find any cafes in this area :(`);
-            }
-            // res.send(result);
+            res.send(result);
         }
     )
 })
@@ -172,22 +203,25 @@ app.get('/user/search/:userId',(req, res) => {
     // Get the parameter
     const userId = req.params.userId;
 
+    let returnObject = {
+
+    }
+
     connection.query(
         'SELECT * FROM `user_information` WHERE user_id = ?',
         [userId],
         function (err, result) {
             //Check to see if a result is returned
             if (result.length === 1) {
-                res.send(result[0]);
+                returnObject.userInformation = result[0]
 
                 // Find favorited cafes ( If there is any )
                 connection.query(
-                    'SELECT cafe_id FROM `favorites` WHERE user_id = ?',
+                    'SELECT * FROM `favorites` INNER JOIN `cafes` ON favorites.cafe_id = cafes.cafe_id INNER JOIN `location` on cafes.cafe_id = location.cafe_id WHERE favorites.user_id = ?',
                     [userId],
                     function (err, result2) {
-                        result2.forEach((cafe) => {
-                            console.log(cafe.cafe_id)
-                        })
+                        returnObject.cafeInformation = result2
+                        res.send(returnObject)
                     }
                 )
             } else {
@@ -287,12 +321,12 @@ app.post('/create/cafe',(req, res) => {
 })
 
 // FAVORITES
-
+let currentUserId = 4
 // -/favorite/add - Adds a favorite functionality
 app.post('/favorite/add',(req, res) => {
     // Get the query parameter
     const cafeId = req.body.cafe_id
-    const userId = currentUserId
+    const userId = req.body.user_id
 
     // If they already has favorited a specific cafe
     connection.query(

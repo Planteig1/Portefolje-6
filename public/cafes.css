@@ -1,64 +1,17 @@
-/* ==========Global Design*/
+/*OVERRIDE NAVFOOTER DESIGN*/
 * {
-    list-style-type: none;
-    text-decoration: none;
-    font-family: 'Rubik', sans-serif;
-}
-a {
-    color: black;
-}
-/*HEADER*/
-header {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: #77402b solid 1px;
-
-}
-/* Nav bar*/
-nav ul {
-    display: flex;
-}
-
-/*NAV BAR NAVIGATION BUTTONS*/
-
-header div h1 {
-    margin-left: 140px;
     color: black;
 }
 
-h1 span {
-    color: #BB6343
-}
-
-nav ul li {
-    font-size: 16px;
-    margin-right: 60px;
-    padding: 10px;
-    border: solid #ab5b3e 1px;
-    border-radius: 5px;
+nav ul li:hover > a {
+    color: white;
     transition: 0.5s;
-    text-align: center;
-}
-
-nav ul li:hover {
-    transform: scale(110%);
-    background-color: #ab5b3e
-}
-
-header div a {
-    text-align: center;
-}
-
-
-
-/* Body */
-body {
-
 }
 
 /*MAIN CONTENT*/
 section {
     display: flex;
+    height: 100vh;
 }
 
 .filter-container {
@@ -68,7 +21,17 @@ section {
 form {
     padding: 15px;
 }
-
+/*CONTAINER FOR CAFE CARD*/
+.list-of-cafes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 /*CAFE CARD*/
 .cafe-content {
     position: relative;
@@ -86,6 +49,7 @@ form {
     height: auto;
     border-radius: 20px;
 }
+
 .cafe-attributes {
     display: flex;
     flex-direction: column;
@@ -95,14 +59,16 @@ form {
     gap:15px;
     text-align: center;
 }
+
 .fav-button {
     background-color: transparent;
     cursor: pointer;
     transition: color 0.5s;
 }
 
-.fav-button:hover {
-    color: #c37659;
+.fav-button .fa-heart:hover {
+    color: #cc181f;
+    transition: 0.3s;
 }
 
 .attribute {
@@ -144,8 +110,32 @@ form {
     border-radius: 3px;
 }
 
-section {
-    height: 100vh;
+
+
+/*FILTER DESIGN*/
+.filter {
+    padding: 20px;
+}
+
+.filter-form {
+}
+.filter-form div {
+    border-bottom: 1px solid black;
+    padding-top:30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.filter-form div:last-child {
+    border-bottom: none;
+}
+.form-buttons {
+    display: flex;
+    flex-direction: column;
+}
+.form-buttons > div {
+    display: flex;
+    flex-direction: column;
+
 }
 /*FOOTER*/
 

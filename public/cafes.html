@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="navFooter.css">
     <link rel="stylesheet" href="cafes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,52 +15,63 @@
 <header>
     <div class="logo">
         <!-- ADD LOGO HERE -->
-        <a href="index.html"><h1>Latte<span>Locator</span></h1></a>
+        <a class="link" href="index.html"><h1>Latte<span>Locator</span></h1></a>
     </div>
     <nav class="nav">
         <ul>
-            <li><a href="cafes.html">Cafe</a></li>
-            <li><a href="#">My Account </a></li>
-            <li><a href="#">About Us</a></li>
-            <li> <a href="log.html">Sign up</a>         </li>
-            <li> <a href="log.html">Sign in</a> </li>
+            <li id="cafe-link"><a class="link" href="cafes.html">Cafe</a></li>
+            <li id="user-link"><a class="link" href="user.html">My Account </a></li>
+            <li id="sign-up-link"><a class="link" href="log.html">Sign up</a> </li>
+            <li id="sign-in-link"><a class="link" href="log.html">Sign in</a> </li>
+            <li id="create-cafe-ink" class="hidden"><a class="link" href="cafeCreate.html">Create cafe</a> </li>
+            <li id="sign-out-link" class="hidden"><a class="link">Sign Out</a> </li>
         </ul>
         <img src="../Images/icons8-menu-50.png" alt="menu" class="hamburger-menu">
     </nav>
 </header>
 
 <main>
-    <section>
+    <section class="filter">
         <div class="filter-container">
-            <form>
-                <div>
-                    <input type="radio" id="$" name="price" value="$">
+            <form class="filter-form">
+                <div class="price-range">
+                    <input type="radio" id="$" name="priceRange" value="inexpensive">
                     <label for="$">$</label>
-                    <input type="radio" id="$$" name="price" value="$$">
+                    <input type="radio" id="$$" name="priceRange" value="moderately-expensive">
                     <label for="$$">$$</label>
-                    <input type="radio" id="$$$" name="price" value="$$$">
+                    <input type="radio" id="$$$" name="priceRange" value="expensive">
                     <label for="$$$">$$$</label>
                 </div>
-                <div>
+                <div class="wifi">
                     <input type="radio" id="wifi" name="wifi" value="true">
                     <label for="wifi">Wifi</label>
                 </div>
-                <div>
+                <div class="music">
                     <input type="radio" id="music" name="music" value="true">
                     <label for="music">Music</label>
-<!--                    COULD ADD OPEN NOW-->
                 </div>
-                <div>
-                    <input type="button" id="reset-filter" name="reset">
-                    <label for="reset-filter">RESET</label>
-                </div>
+                <div class="location">
+                    <select id="location" name="city" size="3">
 
+                    </select>
+                    <label for="location">Cities</label>
+                </div>
+                <!--                    COULD ADD OPEN NOW-->
+                <div class="form-buttons">
+                    <div>
+                        <label for="reset-filter">RESET</label>
+                        <input type="reset" id="reset-filter" name="reset">
+                    </div>
+                    <div>
+                        <label for="search">SEARCH</label>
+                        <input type="button" id="search" name="search">
+                    </div>
+                </div>
             </form>
         </div>
 
         <div class="cafes-container">
-            <ul class="list-of-cafes">
-            </ul>
+            <ul class="list-of-cafes"></ul>
         </div>
     </section>
 </main>
@@ -67,7 +79,7 @@
 <footer>
 
 </footer>
-
+<script src="userLoggedIn.js"></script>
 <script src="cafes.js"></script>
 </body>
 </html>

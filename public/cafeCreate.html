@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navFooter.css">
+    <link rel="stylesheet" href="cafeCreate.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;500;600&family=Kanit:wght@300;400&family=Playpen+Sans:wght@400;600;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <!-- ADD LOGO HERE -->
+        <a class="link" href="index.html"><h1>Latte<span>Locator</span></h1></a>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li id="cafe-link"><a class="link" href="cafes.html">Cafe</a></li>
+            <li id="user-link"><a class="link" href="user.html">My Account </a></li>
+            <li id="sign-up-link"><a class="link" href="log.html">Sign up</a> </li>
+            <li id="sign-in-link"><a class="link" href="log.html">Sign in</a> </li>
+            <li id="create-cafe-ink" class="hidden"><a class="link" href="cafeCreate.html">Create cafe</a> </li>
+            <li id="sign-out-link" class="hidden"><a class="link">Sign Out</a> </li>
+        </ul>
+        <img src="../Images/icons8-menu-50.png" alt="menu" class="hamburger-menu">
+    </nav>
+</header>
+
+<main>
+    <div class="container">
+        <form class="create-cafe-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="wifi">Wi-Fi:</label>
+            <input type="checkbox" id="wifi" name="wifi" value="true">
+
+            <label for="music">Music:</label>
+            <input type="checkbox" id="music" name="music" value="true">
+
+            <label for="price-range">Price Range:</label>
+            <select id="price-range" name="price-range">
+                <option value="inexpensive">Inexpensive</option>
+                <option value="moderately-expensive">Moderately expensive</option>
+                <option value="expensive">Expensive</option>
+            </select>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="lat">Latitude:</label>
+            <input type="number" id="lat" name="lat" required>
+
+            <label for="lng">Longitude:</label>
+            <input type="number" id="lng" name="lng" required>
+
+            <h1>Time Table:</h1>
+            <ul id="timeTable">
+                <li id="monday-time">
+                    <h2>Monday</h2>
+                    <h2>Opening</h2>
+                    <input type="time" class="open" value="08:00"/>
+
+                    <h2>Closing</h2>
+                    <input type="time" class="close" value="20:00" />
+                </li>
+                <li id="tuesday-time">
+                    <h2>Tuesday</h2>
+                    <h2>Opening</h2>
+                    <input type="time" class="open" value="08:00"/>
+
+                    <h2>Closing</h2>
+                    <input type="time" class="close" value="20:00" />
+                </li>
+                <li id="wednesday-time">
+                    <h2>Wednesday</h2>
+                    <h2>Opening</h2>
+                    <input type="time" class="open" value="08:00"/>
+
+                    <h2>Closing</h2>
+                    <input type="time" class="close" value="20:00" />
+                </li>
+                <li id="thursday-time">
+                    <h2>Thursday</h2>
+                    <h2>Opening</h2>
+                    <input type="time" class="open" value="08:00"/>
+
+                    <h2>Closing</h2>
+                    <input type="time" class="close" value="20:00" />
+                </li>
+                <li id="friday-time">
+                    <h2>Friday</h2>
+                    <h2>Opening</h2>
+                    <input type="time" class="open" value="08:00"/>
+
+                    <h2>Closing</h2>
+                    <input type="time" class="close" value="20:00" />
+                </li>
+                <li id="saturday-time">
+                    <h2>Saturday</h2>
+                    <h2>Opening</h2>
+                    <input type="time" class="open" value="08:00"/>
+
+                    <h2>Closing</h2>
+                    <input type="time" class="close" value="20:00" />
+                </li>
+                <li id="sunday-time">
+                    <h2>sunday</h2>
+                    <h2>Opening</h2>
+                    <input type="time" class="open" value="08:00"/>
+
+                    <h2>Closing</h2>
+                    <input type="time" class="close" value="20:00" />
+                </li>
+            </ul>
+
+            <button type="button" id="submit-button">Submit</button>
+        </form>
+    </div>
+</main>
+<script src="userLoggedIn.js"></script>
+<script src="cafeCreate.js"></script>
+</body>
+</html>
