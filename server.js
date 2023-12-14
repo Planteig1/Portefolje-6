@@ -174,7 +174,7 @@ app.get('/cafes/search/',(req, res) => {
         conditions.push(`city = '${city}'`);
     }
     if (priceRange) {
-        conditions.push(`priceRange = '${priceRange}'`);
+        conditions.push(`price_range = '${priceRange}'`);
     }
     if (wifi) {
         conditions.push(`wifi = ${wifi}`);
@@ -182,8 +182,10 @@ app.get('/cafes/search/',(req, res) => {
     if (music) {
         conditions.push(`music = ${music}`);
     }
+
     // Join the conditions with 'AND'
     const conditionsAsString = conditions.join(' AND ');
+    console.log(conditionsAsString)
 
     connection.query(
         `SELECT * FROM cafe_card_details WHERE day_of_week = ? AND ${conditionsAsString}`,
@@ -241,7 +243,7 @@ app.post('/create/cafe',(req, res) => {
     const wifi = req.body.wifi;
     const music = req.body.music;
     const priceRange = req.body.priceRange;
-    const userId = currentUserId;
+    const userId = req.body.user_id
 
     // Location Parameters
     const country = req.body.country;
@@ -277,7 +279,9 @@ app.post('/create/cafe',(req, res) => {
                             [name],
                             function (err, result3) {
                                 // Define the current cafe ID
+                                console.log(result3[0].cafe_id)
                                 const cafeId = result3[0].cafe_id
+
 
                                 // Create location
                                connection.query(
@@ -308,7 +312,6 @@ app.post('/create/cafe',(req, res) => {
                                 })
                             }
                         )
-                        res.send("You Have Created a new Cafe")
                     }
                 )
             } else {

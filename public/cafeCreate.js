@@ -19,16 +19,17 @@ submitButton.addEventListener("click",() => {
    let  cafeName = cafeNameInput.value
     let wifi;
     if (wifiInput.checked) {
-        wifi = wifiInput.value
+        wifi = 1
     } else {
-        wifi = false
+        wifi = 0
     }
     let music;
     if (musicInput.checked) {
-        music = musicInput.value
+        music = 1
     } else {
-        music = false
+        music = 0
     }
+
 
    let  priceRange = priceRangeInput.value
    let  country = countryInput.value
@@ -37,21 +38,25 @@ submitButton.addEventListener("click",() => {
    let  lat = latInput.value
    let  lng = lngInput.value
 
+
     // Check if any of the fields are empty
-
-
+    let arrayOfData = [cafeName,priceRange,country,city,address,lat,lng];
+    if(!arrayOfData.every(dataPoint => dataPoint.length > 0)) {
+        alert("Please provide a value for each field!")
+        return;
+    }
 
     // Find the open/close times for each day
-    let timetable = {};
+    let timetable = [];
     const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
     days.forEach((day) => {
+        let currentDay = day
         let openTime = document.querySelector(`#${day}-time .open`).value;
-        let closeTime = document.querySelector(`#${day}-time .close`).value;
-        timetable[day] = { open: openTime, close: closeTime };
+        let closingTime = document.querySelector(`#${day}-time .close`).value;
+        timetable.push({ dayOfWeek: currentDay, open:openTime, closing:closingTime  })
     })
-    console.log(timetable)
 
-    let returnObject = {
+    let cafeInformation = {
         "name": cafeName,
         "wifi": wifi,
         "music": music,
@@ -61,7 +66,27 @@ submitButton.addEventListener("click",() => {
         "address": address,
         "lat":lat,
         "lng":lng,
+        "user_id": currentUserId,
         "timeTable": timetable
     }
-    console.log(returnObject)
+
+    console.log(cafeInformation)
+    createCafe(cafeInformation);
+
 })
+
+function createCafe(cafeInformation) {
+    // Send post request
+    fetch('http://localhost:3000/create/cafe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cafeInformation),
+    }).then(response => response.json())
+        .then((createOrNot) => {
+            // Send user to the newly created cafe.
+            console.log(createOrNot)
+
+        })
+}
