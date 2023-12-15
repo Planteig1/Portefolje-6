@@ -81,7 +81,6 @@ form {
     1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
 }
 
-
 .card-details {
     position: absolute;
     bottom: 0;
@@ -140,3 +139,6 @@ form {
 }
 /*FOOTER*/
 
+.favorite{
+    color: #cc181f;
+}

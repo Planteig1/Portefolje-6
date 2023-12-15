@@ -119,17 +119,39 @@ app.get('/cafes',(req, res) => {
 })
 
 // -/cafes/:cafe_id - Shows the cafe based on id
+// MYSQL VIEW - SELECT cafes.cafe_id, cafes.name, cafes.wifi,cafes.music, cafes.price_range, location.country, location.city,location.address,location.lat,location.lng, AVG(rating.rating) AS avg_rating
+// FROM cafes
+// INNER JOIN location ON cafes.cafe_id = location.cafe_id
+// LEFT JOIN rating ON cafes.cafe_id = rating.cafe_id
+// GROUP BY cafes.cafe_id,cafes.name,cafes.wifi,cafes.music,cafes.price_range,cafes.user_id,location.country,location.city,location.address,location.lat,location.lng;
 app.get('/cafe/search/:cafe_id',(req, res) => {
     // Get the parameter
     let cafeId = req.params.cafe_id;
-
+    let returnObject = {}
     //Fetch the data based on cafe ID
+    // Data about cafe and location and avg rating
     connection.query(
-        'SELECT * FROM `cafes` WHERE cafe_id = ?',
+        'SELECT * FROM `all_cafe_content` WHERE cafe_id = ?',
         [cafeId],
         function (err, result) {
-            console.log("You searched for the cafe with id " + cafeId)
-            res.send(result)
+            returnObject.cafeData = result[0]
+            // Get opening hours
+            connection.query(
+                'SELECT * FROM `time` WHERE cafe_id = ?',
+                [cafeId],
+                function (err, result) {
+                    returnObject.timeTable = result
+                    // Get induvidual ratings
+                    connection.query(
+                        'SELECT * FROM `rating` WHERE cafe_id = ?',
+                        [cafeId],
+                        function (err, result) {
+                            returnObject.ratings = result
+                            res.send(returnObject);
+                        }
+                    )
+                }
+            )
         }
     )
 })
@@ -322,7 +344,6 @@ app.post('/create/cafe',(req, res) => {
 })
 
 // FAVORITES
-let currentUserId = 4
 // -/favorite/add - Adds a favorite functionality
 app.post('/favorite/add',(req, res) => {
     // Get the query parameter
@@ -358,22 +379,37 @@ app.post('/favorite/add',(req, res) => {
     )
 })
 
+// FIND WHAT CAFES HAVE BEEN FAVORITED BY USER
+
+app.get('/favorite/user/:user_id',(req, res) => {
+    const userId = req.params.user_id
+
+    connection.query(
+        'SELECT cafe_id FROM `favorites` WHERE user_id = ?',
+        [userId],
+        function (err, result) {
+            res.send(result)
+        }
+    )
+})
+
 
 // RATING
 app.post('/cafes/add/rating',(req, res) =>{
     // Get parameter.
-    const cafeId = req.body.cafeId;
+    const cafeId = req.body.cafe_id;
     const rating = req.body.rating;
     const ratingText = req.body.rText;
+    const userId = req.body.user_id
 
     connection.query(
         'INSERT INTO `rating`(user_id, cafe_id, rating, rtext) VALUES(?,?,?,?)',
-        [currentUserId,cafeId, rating, ratingText],
+        [userId,cafeId, rating, ratingText],
         function (err, result) {
             if (err) {
                 res.send(err)
             }
-            res.send("Rating added.")
+            res.send(result)
         }
     )
 })

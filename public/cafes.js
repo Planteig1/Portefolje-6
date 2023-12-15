@@ -57,7 +57,7 @@ function createCafeCards(listOfCafes) {
         // Change the innerHTML to the template made
         liElementForCafe.innerHTML = `
                     <div class="cafe-content">
-                        <a href="#" >
+                        <a href="cafeSearch.html?cafe_id=${cafe.cafe_id}" >
                             <div class="cafe-attributes">
                                 <button class="fav-button"><span class="fa-solid fa-heart attribute"></span></button>
                                 ${attributeIcons.join(' ')}
@@ -92,11 +92,13 @@ function createCafeCards(listOfCafes) {
 
 function addFavorite(listOfCafes) {
 
+    fetchFavoriteCafeList(listOfCafes);
 
     favoriteButtons = document.querySelectorAll(".fav-button");
 
     favoriteButtons.forEach((button, index) => {
-        button.addEventListener("click",() => {
+        button.addEventListener("click",(event) => {
+            event.stopPropagation();
             if (!userLoggedIn) {
                 alert("Please Login or register an account before trying to favorite a cafe")
 
@@ -104,10 +106,10 @@ function addFavorite(listOfCafes) {
                 window.location.pathname  = "/Portefolje-6/public/log.html";
             }
 
+
             let currentHeartIcon = button.querySelector(".fa-heart");
             currentHeartIcon.classList.toggle("favorite");
             let currentCafe = listOfCafes[index].cafe_id
-
             let favoriteData = {
                 "cafe_id": currentCafe,
                 "user_id": currentUserId
@@ -123,10 +125,35 @@ function addFavorite(listOfCafes) {
                 .then((favorited) => {
                     console.log(favorited)
                 })
-
         })
     })
 }
+
+function fetchFavoriteCafeList(listOfCafes) {
+    // Get a list of all the favorited
+    fetch(`http://localhost:3000/favorite/user/${currentUserId}`)
+        .then(response => response.json())
+        .then((listOfCafesFav) => {
+            //Create a list with just the cafe_id
+            let listOfFavCafes = []
+            listOfCafesFav.forEach((cafe) => {
+                listOfFavCafes.push(cafe.cafe_id)
+            })
+
+           // Find all the favorite buttons and therefor able to find the specifc heart
+            favoriteButtons = document.querySelectorAll(".fav-button");
+
+            favoriteButtons.forEach((heart, index) => {
+                let currentHeartIcon = heart.querySelector(".fa-heart");
+                let currentCafe = listOfCafes[index].cafe_id
+                //If the current heart icon is on a cafe thats already been favorited
+                if (listOfFavCafes.includes(currentCafe)) {
+                    currentHeartIcon.classList.toggle("favorite")
+                }
+            })
+        })
+}
+
 
 // Find the all cities in the database.
 
