@@ -1,7 +1,140 @@
 * {
     color: black;
 }
+
+
+/*GENERAL */
 section {
-    height: 100vh;
+    height: 120vh;
+
+}
+h2 {
+    color: white;
+}
+.container-for-all {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* PICTURE INFORMATION */
+.info-on-picture-container {
+    background-color: yellow;
+    height: 400px;
+    position: relative;
+}
+
+.info-on-picture-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* SHOWCASE DETAILS */
+.cafe-showcase-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.address-rating {
+    display: flex;
+}
+.address-rating > * {
+    margin: 0;
+    color: white;
+}
+.fa-star {
+    color: white;
+    background-color: #c37659;
+    padding: 2px;
+    border-radius: 3px;
+}
+/* EXTENDED DETAILS */
+.extended-details-container {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+#map {
+    height: 400px;
+    width: 400px;
+    margin-right: 20px;
+}
+.open-close {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.day {
+    width: 20%;
+    text-align: center;
+    background-color: #c37659;
+    border-radius: 20px;
+    border: solid black 2px;
+    padding: 10px;
+}
+
+.time {
+    background-color: #77402b;
+    border-radius: 16px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.time h4 {
+    margin: 0;
+    color: white;
+}
+/*reviews*/
+.reviews {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.reviews h2{
+    color: black;
+}
+.rating-li {
+    border:solid black 2px;
+    display: flex;
+    border-radius: 10px;
+    background-color: #c37659;;
+}
+.rating {
+    border-radius: 10px;
+    background-color: #77402b;
+    margin: 10px;
+    padding: 10px;
+}
+.rating h3 {
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+.rating-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rating-text p {
+    color: #f1f6ff;
+    margin: 8px;
+}
+.rate-cafe h2 {
+    text-align: center;
+}
+.rate-cafe form {
+    display: flex;
+    flex-direction: column;
 }
 
