@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="navFooter.css">
 </head>
 <body>
 <header>
@@ -13,11 +14,13 @@
     </div>
     <nav class="nav">
         <ul>
-            <li><a href="cafes.html">Cafe</a></li>
-            <li><a href="user.html">My Account </a></li>
-            <li><a href="">About Us</a></li>
-            <li> <a href="log.html">Sign up</a>         </li>
-            <li> <a href="log.html">Sign in</a> </li>
+            <li id="cafe-link"><a class="link" href="cafes.html">Cafe</a></li>
+            <li id="user-link"><a class="link" href="user.html">My Account </a></li>
+            <li id="about-link"><a class="link" href="about.html">About Us</a></li>
+            <li id="sign-up-link"><a class="link" href="log.html">Sign up</a> </li>
+            <li id="sign-in-link"><a class="link" href="log.html">Sign in</a> </li>
+            <li id="create-cafe-ink" class="hidden"><a class="link" href="cafeCreate.html">Create cafe</a> </li>
+            <li id="sign-out-link" class="hidden"><a class="link">Sign Out</a> </li>
         </ul>
         <img src="../Images/icons8-menu-50.png" alt="menu" class="hamburger-menu">
     </nav>
@@ -35,16 +38,16 @@
         <h1>Meet the Team</h1>
         <div class="team">
             <div class="team-member">
-                <img src="../Images/Rasmus.jpeg" alt="team member">
-                <h2>Shannon</h2>
-                <p>Shannon is a senior at the University of Pittsburgh studying Computer Science and Studio Arts.
+                <img src="../Images/sion.jpeg" alt="team member">
+                <h2>Rasmus</h2>
+                <p>Rasmus is a senior at the University of Pittsburgh studying Computer Science and Studio Arts.
                     She is interested in web development and UI/UX design.
                 </p>
             </div>
             <div class="team-member">
-                <img src="../Images/Gandalf.png" alt="team member">
-                <h2>Shannon</h2>
-                <p>Shannon is a senior at the University of Pittsburgh studying Computer Science and Studio Arts.
+                <img src="../Images/Vladimir.jpeg" alt="team member">
+                <h2>Keller</h2>
+                <p>Keller is a senior at the University of Pittsburgh studying Computer Science and Studio Arts.
                     She is interested in web development and UI/UX design.
                 </p>
             </div>
@@ -52,10 +55,7 @@
     </div>
     </div>
 </main>
-
-<script src="../server.js"></script>
-
-
+<script src="userLoggedIn.js"></script>
 
 </body>
 </html>

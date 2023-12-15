@@ -3,6 +3,19 @@
     color: black;
 }
 
+header {
+    border-bottom: #77402b solid 1px;
+}
+
+header a {
+    color: #77402BFF;
+}
+
+header a:hover {
+    color: #f1f6ff;
+    transition: 0.5s;
+}
+
 .create-cafe-form {
     display: flex;
     flex-direction: column;
@@ -13,8 +26,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: powderblue;
     padding: 10px;
+    font-weight: 700;
 }
 
 #timeTable {
@@ -22,12 +35,43 @@
     gap: 20px;
 }
 #timeTable li {
-    background-color: #666666;
+    background: #f1f6ff;
+    border: black solid 1px;
     padding: 10px;
     text-align: center;
     border-radius: 10px;
+
 }
 
-h1 {
+.time-h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
 
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+input, select {
+    border-radius: 15px;
+}
+
+#wifi, #music {
+    display: flex;
+    flex-direction: row;
+}
+
+#submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 30px;
+    font-size: 17px;
+    transition: background-color 0.3s ease, color 0.1s ease;
 }
