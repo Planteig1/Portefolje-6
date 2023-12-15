@@ -42,15 +42,20 @@ section {
     flex-direction: row;
     display: flex;
     width: 100%;
+    background: none;
+
 }
 
+
+
 button {
-    color: #77402b;
+    color: #f1f6ff;
     width: 100%;
     transition: background-color 0.3s ease, color 0.1s ease;
     border-radius: 15px;
     height: 30px;
     font-size: 17px;
+    background: #77402b;
 
 }
 
