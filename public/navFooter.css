@@ -15,6 +15,10 @@ header {
 
 }
 /* ============== Nav bar =========== */
+nav {
+    margin-right: 0;
+}
+
 nav ul {
     display: flex;
 }
@@ -66,56 +70,79 @@ nav ul li:hover {
 .nav .hamburger-menu {
     position: absolute;
     display: none;
-    top: 25px;
+    top: 15px;
     right: 25px;
     width: 45px;
     cursor: pointer;
 }
 
 
-/* =========== NAV BAR RESPONSIVE ============ */
-@media screen and (max-width: 1100px) {
-    .nav li {
-        margin-right: 20px
+/*HIDDEN STUFF*/
+.hidden {
+    display: none;
+}
+
+/* =========== media queries =========== */
+@media screen and (max-width: 1150px) {
+    .logo h1 {
+        margin-left: 70px;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    nav ul li {
+        font-size: 15px;
+        margin-right: 20px;
+        padding: 10px;
     }
 }
 
-@media screen and (max-width: 1024px) {
-    .nav .hamburger-menu{
+@media screen and (max-width: 813px) {
+    .logo h1 {
+        margin-left: 50px;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    nav ul li {
+        display: none;
+    }
+
+    .nav .hamburger-menu {
         display: block;
+        cursor: pointer;
     }
 
     .nav {
-        display: flex;
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        background: rgba(119, 64, 43, 0.4);
-        backdrop-filter: blur(10px);
+        position: fixed;
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #99582a;
+        display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        transition:0.5s;
         margin-right: -100%;
-    }
-
-    .open {
-        margin-right: 0;
-    }
-    .nav li:hover {
-        transform: none;
-        background-color: transparent;
-        border: none;
     }
 
     .nav ul {
         display: flex;
         flex-direction: column;
+        gap: 20px;
+        justify-content: center;
         align-items: center;
+    }
+
+    .nav ul li {
+        display: block;
+        font-size: 30px;
+        margin-right: 0;
+        padding: 0;
+    }
+    .nav ul.show {
+        margin-right: 0;
     }
 }
 
-/*HIDDEN STUFF*/
-.hidden {
-    display: none;
-}
+

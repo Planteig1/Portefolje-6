@@ -1,6 +1,6 @@
 
 * {
-    color: black;
+    color: white;
 }
 
 /* ======== video background ============= */
@@ -13,10 +13,6 @@
     height: 100%;
     object-fit: cover;
 }
-
-main {
-
-}
 section {
     height: 80vh;
     display: flex;
@@ -24,27 +20,162 @@ section {
     align-items: center;
 }
 
-
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #333333;
     padding: 10px;
+    width: 400px;
+    height: 400px;
+    background: rgba(153, 88, 42, 0.62);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(4.6px);
+    border: 1px solid rgb(241, 246, 255);
+    transition: transform 0.3s ease;
 }
+
 .switch-buttons {
     padding-bottom: 30px;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    background: none;
+
 }
+
+
+
+button {
+    color: #f1f6ff;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.1s ease;
+    border-radius: 15px;
+    height: 30px;
+    font-size: 17px;
+    background: #77402b;
+
+}
+
+button:hover {
+    background-color: #ffdab9; /* Change to your desired hover color */
+    color: #77402b;
+}
+
 .forms {
     display: flex;
     gap: 20px;
 }
-.login-form, .register-form {
+
+.login-form,
+.register-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
+input {
+    color: #77402b;
+    height: 30px;
+    width: 90%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 15px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #77402b;
+    box-shadow: 0 0 5px rgba(119, 64, 43, 0.5);
+}
+
+
+
+/*main {*/
+
+/*}*/
+/*section {*/
+/*    height: 80vh;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.container {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    padding: 10px;*/
+/*    width: 400px;*/
+/*    height: 400px;*/
+/*    !* From https://css.glass *!*/
+/*    background: rgba(153, 88, 42, 0.62);*/
+/*    border-radius: 16px;*/
+/*    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
+/*    backdrop-filter: blur(8px);*/
+/*    -webkit-backdrop-filter: blur(4.6px);*/
+/*    border: 1px solid rgb(241, 246, 255);*/
+/*    transition: transform 0.3s ease;*/
+/*}*/
+
+/*.login-active {*/
+/*    transform: translateX(0);*/
+/*}*/
+
+/*.register-active {*/
+/*    transform: translateX(-100%);*/
+/*}*/
+
+
+/*.switch-buttons {*/
+/*    padding-bottom: 30px;*/
+/*}*/
+
+/*button {*/
+/*    color: #77402b;*/
+/*    width: 100px;*/
+/*    transition: background-color 0.3s ease, color 0.3s ease;*/
+/*}*/
+
+/*button:hover {*/
+/*    background-color: #ffdab9; !* Change to your desired hover color *!*/
+/*    color: #77402b;*/
+/*}*/
+
+
+/*.forms {*/
+/*    display: flex;*/
+/*    gap: 20px;*/
+/*}*/
+/*.login-form, .register-form {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 10px;*/
+/*}*/
+
+/*input {*/
+/*    color: #77402b;*/
+/*    height: 30px;*/
+/*    width: 90%;*/
+/*    outline: none;*/
+/*    padding-left: 15px;*/
+/*    border-radius: 15px;*/
+/*    border: 1px solid lightgrey;*/
+/*    border-bottom-width: 2px;*/
+/*    font-size: 17px;*/
+/*    transition: all 0.3s ease;*/
+/*}*/
+
+/*input:focus {*/
+/*    border-color: #77402b;*/
+/*    box-shadow: 0 0 5px rgba(119, 64, 43, 0.5);*/
+/*}*/
 
 /*
 header {
@@ -320,4 +451,5 @@ input {
     display: flex;
 }
  */
+
 

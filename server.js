@@ -10,7 +10,6 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
 })
@@ -28,8 +27,6 @@ const connection = mysql.createConnection({
     password: process.env.MYSQL_PASSWORD,
     database: process.env.DATABASE
 });
-
-
 
 // LOGIN / REGISTER
 
