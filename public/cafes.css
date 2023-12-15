@@ -96,7 +96,10 @@ form {
 .card-details > * {
     margin: 0;
 }
-
+.card-details h3 {
+    padding: 0;
+    margin: 0;
+}
 .card-rating {
     display: flex;
     align-items: center;

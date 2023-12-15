@@ -57,21 +57,19 @@ function createCafeCards(listOfCafes) {
         // Change the innerHTML to the template made
         liElementForCafe.innerHTML = `
                     <div class="cafe-content">
-                        <a href="cafeSearch.html?cafe_id=${cafe.cafe_id}" >
                             <div class="cafe-attributes">
                                 <button class="fav-button"><span class="fa-solid fa-heart attribute"></span></button>
                                 ${attributeIcons.join(' ')}
                             </div>
                             <img src="https://images.squarespace-cdn.com/content/v1/630df13c6197615113e5d249/a72505be-7a7b-450a-a7b9-c4d97a71c2c6/unda_restaurant_21.09.22.jpg" alt="Picture Of The cafe">
                             <div class="card-details">
-                                <h3>${cafe.name}</h3>
+                                <a href="cafeSearch.html?cafe_id=${cafe.cafe_id}" ><h3>${cafe.name}</h3></a>
                                 <p>${cafe.address}, ${cafe.city}, ${cafe.country}</p>
                                 <div class="card-rating">
                                     <span class="fa-solid fa-calendar-days"></span>
                                     <h3>${cafe.opening_hour} - ${cafe.closing_hour}</h3>
                                 </div>
                             </div>
-                        </a>
                     </div>`
 
         // Check if the cafe has rating
@@ -98,12 +96,12 @@ function addFavorite(listOfCafes) {
 
     favoriteButtons.forEach((button, index) => {
         button.addEventListener("click",(event) => {
-            event.stopPropagation();
             if (!userLoggedIn) {
                 alert("Please Login or register an account before trying to favorite a cafe")
 
                 //Change the page to login/register page when user is ready
                 window.location.pathname  = "/Portefolje-6/public/log.html";
+                return;
             }
 
 
